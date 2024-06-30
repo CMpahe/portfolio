@@ -18,7 +18,7 @@ export const Main = () => {
 
       <section id='aboutSection'>
         <div>
-          <img src='./src/img/CodeTyping.png' />
+          <img src='./img/CodeTyping.png' />
           <h2>About <span className='highlight'>Me</span></h2>
           <p>I am a self-taught <span className='highlight'>Frontend Junior Developer</span> passionated about creating interactive and engaging web experiences.</p>
           <p>With solid knowledge of HTML, CSS and JAVASCRIPT. Seeking for new oportunities to grow professionally and contribute my creativity and technic skills in a collaborative enviroment.</p>
@@ -31,7 +31,7 @@ export const Main = () => {
         <h2>Contact <span className='highlight'>ME</span></h2>
         <div>
           <img
-            src='./src/img/icons/email.png'
+            src='./img/icons/email.png'
             className='icon'
             alt='email icon'
           />
@@ -39,7 +39,7 @@ export const Main = () => {
         </div>
         <div>
           <img
-            src='./src/img/icons/address.png'
+            src='./img/icons/address.png'
             className='icon'
             alt='address icon'
           />
@@ -47,7 +47,7 @@ export const Main = () => {
         </div>
         <div>
           <img
-            src='./src/img/icons/phone.png'
+            src='./img/icons/phone.png'
             className='icon'
             alt='phone icon'
           />

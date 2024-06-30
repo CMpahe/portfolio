@@ -3,14 +3,14 @@ export const Footer = () => {
     <footer id='footer'>
       <a href='https://www.linkedin.com/in/carlos-hernández-palma-145b80172'>
         <img
-          src='./src/img/icons/linkedin.png'
+          src='./img/icons/linkedin.png'
           className='icon'
           alt='linkedin icon'
         />
       </a>
       <a href='https://github.com/CMpahe'>
         <img
-          src='./src/img/icons/github.png'
+          src='./img/icons/github.png'
           className='icon'
           alt='github icon'
         />
