@@ -18,7 +18,7 @@ export const Main = () => {
 
       <section id='aboutSection'>
         <div>
-          <img src='../img/CodeTyping.png' />
+          <img src='../src/img/CodeTyping.png' />
           <h2>About <span className='highlight'>Me</span></h2>
           <p>I am a self-taught <span className='highlight'>Frontend Junior Developer</span> passionated about creating interactive and engaging web experiences.</p>
           <p>With solid knowledge of HTML, CSS and JAVASCRIPT. Seeking for new oportunities to grow professionally and contribute my creativity and technic skills in a collaborative enviroment.</p>
