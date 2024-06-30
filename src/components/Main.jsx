@@ -1,6 +1,5 @@
 // COMPONENTS
 import { Projects } from './Projects'
-import yo from './src/img/yo.jpg'
 
 export const Main = () => {
   return (
@@ -13,7 +12,7 @@ export const Main = () => {
           </h2>
         </div>
         <div className='img-container'>
-          <img src={yo} />
+          <img src='./img/yo.jpg' />
         </div>
       </section>
 
