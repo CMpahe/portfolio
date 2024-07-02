@@ -42,6 +42,7 @@
             border: 0;
             width: 2rem;
             height: 2rem;
+            margin-left: 1.5rem;
         }
 
         #openBtn {
@@ -69,12 +70,13 @@
         }
 
         #closeBtn {
-            background-image: url('../img/icons/close.png');
             box-sizing: border-box;
-            width: 1.5rem;
-            height: 1.5rem;
-            margin: 0 1rem 1.2rem 0;
-            
+            width: 2.2rem;
+            margin: 0 1rem 1rem 0;
+
+            img{
+                width: 100%;
+            }
         }
     }
 
@@ -86,8 +88,8 @@
         .header-nav {
             position: fixed;
             height: 100vh;
-            width: 40%;
-            right: -40%;
+            width: 55%;
+            right: -55%;
             top: 0;
             z-index: 1;
 
@@ -103,7 +105,7 @@
             
             a {
                 width: 100%;
-                padding: 1.3rem;
+                padding: min(1.3rem, 4vw);
                 border-bottom: 0;
                 
                 box-sizing: border-box;
@@ -131,21 +133,28 @@
 
     display: grid;
     align-content: center;
+    //padding: 4rem 3rem;
 
     // INTRODUCING SECTION
     #introducingSection {
         display: grid;
-        grid-template-columns: minmax(10rem, 1fr) auto;
+        grid-template-columns: repeat(2, minmax(4rem, 1fr));
         gap: 1rem;
         align-items: center;
 
-        padding: 4rem 3rem;
-        line-height: 2.5rem;
+        padding: min(4rem, 14vw) min(2rem, 7vw);
+        line-height: min(2.5rem, 9vw);
 
-            img {
-                border-radius: 900px;
-                width: 100%;
+            .img-container {
+                display: flex;
+                place-self: center;
+    
+                img {
+                    border-radius: 900px;
+                    width: 100%;
+                }
             }
+            
     }
 
     // ABOUT SECTION
@@ -154,7 +163,7 @@
         align-items: center;
 
         background-color: var(--color01-1);
-        padding: 2rem;
+        padding: min(2rem, 7vw);
     
         div {
             h2 {
@@ -163,7 +172,7 @@
 
             p {
                 text-align: justify;
-                line-height: 1.8rem;
+                line-height: min(1.8rem, 6vw);
                 margin-top: 1rem;
             }
         }
@@ -172,7 +181,7 @@
             float: left;
             margin-right: .5rem;
 
-            width: 60%;
+            width: 50%;
             max-width: 16rem;
             height: auto;
         }
@@ -188,11 +197,11 @@
     // PROJECTS SECTION
     #projectSection {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
         justify-items: center;
 
         gap: 2.5rem 1.3rem;
-        padding: 2rem;
+        padding: min(2rem, 7vw);
         padding-bottom: 6rem;
         box-sizing: border-box;
 
@@ -208,10 +217,10 @@
             width: 100%;
 
             img {
-                width: 100%;
-                height:11rem;
+                width: min(40vw, 12.5rem);
+                height:min(40vw, 12.5rem);
 
-                border-radius: 2rem;
+                border-radius: 3vw;
                 border: .1rem solid var(--color02);
                 box-sizing: border-box;
             }
@@ -227,7 +236,7 @@
         align-items: center;
 
         background-color: var(--color01-1);
-        padding: 3rem;
+        padding: min(3rem, 7.5vw);
         padding-top: 2rem;
 
         h2{

@@ -19,7 +19,7 @@ export const Header = () => {
       {!menu && <button id='openBtn' className='menuBtn' onClick={openMenu} />}
 
       <nav className={classHeaderNav}>
-        {menu && <button id='closeBtn' className='menuBtn' onClick={closeMenu} />}
+        {menu && <button id='closeBtn' className='menuBtn' onClick={closeMenu}><img src='./img/icons/close.png' /></button>}
         <a>Home</a>
         <a>About</a>
         <a>My Skills</a>
