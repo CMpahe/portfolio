@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: var(--color04);
+    position: relative;
 
     grid-template-areas:
     'header header header'
@@ -29,25 +30,20 @@
     justify-content: space-between;
     align-items: center;
 
+    position: fixed;
+    width: inherit;
+    max-width: 750px;
+    box-sizing: border-box;
+
     background-color: var(--color04);
     color: var(--color03);
 
     padding: 1rem;
     border-bottom: .1rem solid var(--color06);
-    min-height: 2rem;
 
-        .menuBtn {
-            background-color: transparent;
-            background-size: contain;
-            border: 0;
-            width: 2rem;
-            height: 2rem;
-            margin-left: 1.5rem;
-        }
-
-        #openBtn {
-            background-image: url('../img/icons/menu.png');
+        .open-btn {
             display: none;
+            font-size: 2rem;
         }
 
     .header-nav {
@@ -59,6 +55,7 @@
         a {
             padding: .2rem .6rem;
             border-bottom: .1rem solid transparent;
+            color: inherit;
         }
 
         a:hover {
@@ -67,64 +64,90 @@
         
         a:active {
             background-color: var(--color01-1);
-        }
-
-        #closeBtn {
-            box-sizing: border-box;
-            width: 2.2rem;
-            margin: 0 1rem 1rem 0;
-
-            img{
-                width: 100%;
-            }
-        }
+        }   
     }
 
     @media (max-width: 660px) {
-        #openBtn {
+        .header-nav {
+            display: none;
+        }
+        .open-btn {
             display: block;
         }
-    
-        .header-nav {
-            position: fixed;
-            height: 100vh;
-            width: 55%;
-            right: -55%;
-            top: 0;
-            z-index: 1;
+    }
+}
 
-            flex-direction: column;
-            align-items: end;
-            box-sizing: border-box;
-    
-            background-color: rgba(0, 0, 0, 0.66);
-            backdrop-filter: blur(.5rem);
-            padding: 1.2rem 0rem;
+// SIDEBAR
+#sidebar {
+    display: flex;
+    position: fixed;
+    height: 100%;
+    width: 60%;
+    right: -60%;
+    z-index: 1;
+    overflow: auto;
 
-            transition: 0.3s ease-in-out;
-            
-            a {
-                width: 100%;
-                padding: min(1.3rem, 4vw);
-                border-bottom: 0;
-                
-                box-sizing: border-box;
-                text-align: end;
+    flex-direction: column;
+    align-items: end;
+    box-sizing: border-box;
 
-                border-right: .4rem solid transparent;
-                transition: .3s ease-in-out;
-            }
+    background-color: rgba(0, 0, 0, 0.66);
+    backdrop-filter: blur(.5rem);
+    padding: 1.2rem 0rem;
 
-            a:hover {
-                border-bottom: 0;
-                border-right: .4rem solid var(--color09);
-                background-color: rgba(0, 0, 0, 0.402);
-            }
+    transition: 0.3s ease-in-out;
+
+    .close-btn {
+        font-size: 1.7rem;
+        padding: min(1rem, 6vw);
+
+        img{
+            width: 100%;
         }
     }
-    .isActive {
-        transform: translate(-100%);
+
+    .sidebar-item{
+        width: 100%;
+        padding: min(1rem, 6vw);
+        border-bottom: 0;
+        
+        box-sizing: border-box;
+        text-align: end;
+
+        border-right: .4rem solid transparent;
+        transition: .3s ease-in-out;
+
+        i{
+            margin-left: .5rem;
+        }
+
+        .item-title {
+            display: flex;
+            justify-content: space-between;
+
+            .toggle-btn {
+                transition: .5s ease-out;
+            }
+        }
+        .item-content {
+            height: 0;
+            overflow: hidden;
+        }
     }
+    .sidebar-item:hover {
+        border-bottom: 0;
+        //border-right: .4rem solid var(--color09);
+        background-color: rgba(0, 0, 0, 0.402);
+    }
+    .sidebar-item.open .item-content{
+        height: auto;
+    }
+    .sidebar-item.open .toggle-btn{
+        transform: rotate(180deg);
+    }
+}
+.isActive {
+    transform: translate(-100%);
 }
 
 // MAIN
@@ -133,17 +156,17 @@
 
     display: grid;
     align-content: center;
-    //padding: 4rem 3rem;
 
     // INTRODUCING SECTION
     #introducingSection {
         display: grid;
-        grid-template-columns: repeat(2, minmax(4rem, 1fr));
+        grid-template-columns: repeat(2, auto);
         gap: 1rem;
         align-items: center;
 
         padding: min(4rem, 14vw) min(2rem, 7vw);
-        line-height: min(2.5rem, 9vw);
+        padding-top: 7rem;
+        line-height: min(2.5rem, 9.5vw);
 
             .img-container {
                 display: flex;
@@ -185,25 +208,17 @@
             max-width: 16rem;
             height: auto;
         }
-
-        @media(max-width:550px) {
-            div {
-            grid-column: 1/-1;
-            grid-row: 1/2;
-           } 
-        }
     }
 
     // PROJECTS SECTION
     #projectSection {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); // aqui estaba el problema del overflow
         justify-items: center;
 
         gap: 2.5rem 1.3rem;
         padding: min(2rem, 7vw);
         padding-bottom: 6rem;
-        box-sizing: border-box;
 
         h2 {
             grid-column: 1 / -1;
@@ -215,10 +230,11 @@
             place-items: center;
             gap: 1rem;
             width: 100%;
+            
 
             img {
-                width: min(40vw, 12.5rem);
-                height:min(40vw, 12.5rem);
+                width: min(40vw, 10.5rem);
+                height:min(40vw, 10.5rem);
 
                 border-radius: 3vw;
                 border: .1rem solid var(--color02);
@@ -276,12 +292,11 @@
         border-bottom: .08rem solid ;
     }
 
-    A {
+    a {
         display: flex;
         cursor: pointer;
     }
 }
-
 
 // GLOBAL CLASSES
 .highlight {
@@ -292,15 +307,7 @@
     width: 1.7rem;
 }
 
-.hide {
-    display: none;
-}
-
-.slide {
-    transform: translate(0%);
-}
-
-.img-container {
+.img-container {  // Only used in the introducing section
     min-width: 5rem;
     max-width: 11rem;
 }
